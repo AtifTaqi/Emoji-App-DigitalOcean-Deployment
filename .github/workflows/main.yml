@@ -44,6 +44,6 @@ jobs:
         run: kubectl apply -k github.com/AtifTaqi/Emoji-App-DigitalOcean-Deployment/kustomized
         
       - name: Verify deployment
-        run: kubectl rollout status deployment/emojivoto
+        run: kubectl rollout status deployment/emoji
         
         #test
