@@ -41,16 +41,8 @@ jobs:
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ secrets.CLUSTER_NAME }}
 
       - name: Deploy to DigitalOcean Kubernetes
-        run: |
-          
-          kubectl apply -k emojivoto-example/docker-compose.yml
-
-          kubectl apply -k emojivoto-example/kustomize/deployment/emoji.yml
-          kubectl apply -k emojivoto-example/kustomize/deployment/vote-bot.ymll
-          
-          kubectl apply -k emojivoto-example/kustomize/deployment/voting.yml
-          kubectl apply -k emojivoto-example/kustomize/deployment/web.yml
-
+        run: kubectl apply -k github.com/AtifTaqi/Emoji-App-DigitalOcean-Deployment/tree/main/kustomized
+        
       - name: Verify deployment
         run: kubectl rollout status deployment/emoji-app
         
