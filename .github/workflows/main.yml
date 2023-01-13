@@ -27,13 +27,10 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
  
       - name: Log in to DigitalOcean Container Registry with short-lived credentials
-        run: doctl registry login --expiry-seconds 1200
+        run: doctl registry login --expiry-seconds 5000
       
       - name: Push image to DigitalOcean Container Registry
-        with:
-           token: ${{ secrets.REGISTRY_PERMISSIONS }}
-     
-      -  run: docker push ${{ secrets.REGISTRY_NAME }}/emoji-app:$(echo $GITHUB_SHA | head -c7)
+        run: docker push ${{ secrets.REGISTRY_NAME }}/emoji-app:$(echo $GITHUB_SHA | head -c7)
 
         
          
