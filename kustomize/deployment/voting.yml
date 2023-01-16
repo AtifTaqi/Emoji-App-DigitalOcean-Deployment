@@ -41,7 +41,7 @@ spec:
           name: prom
         resources:
           requests:
-            cpu: 250m
+            cpu: 200m
 ---
 apiVersion: v1
 kind: Service
